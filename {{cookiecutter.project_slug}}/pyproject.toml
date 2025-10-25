@@ -1,22 +1,36 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "{{cookiecutter.project_slug}}"
 version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.description}}"
-authors = ["{{cookiecutter.author}}"]
 readme = "README.md"
+authors = [{ name = "{{cookiecutter.author}}"}]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pydantic>=2.11.7",
+    "pyyaml>=6.0.1",
+    "rich>=14.1.0",
+    "click>=8.1.7",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-pydantic = "^2.11.7"
-pyyaml = "^6.0.1"
-rich = "14.1.0"
-click = "^8.1.7"
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.8.3",
+    "mypy>=1.13.0",
+    "pytest>=8.3.2",
+    "pytest-cov>=5.0.0",
+]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.8.3"
-mypy = "^1.13.0"
-pytest = "^8.3.2"
-pytest-cov = "^5.0.0"
+[project.scripts]
+cli = "{{cookiecutter.project_slug}}.cli:cli"
 
 [tool.ruff]
 line-length = 99
@@ -43,13 +57,6 @@ ignore = [
     "S108",
     "E203", # conflicts with black
 ]
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-cli = "{{cookiecutter.project_slug}}.cli:cli"
 
 [tool.mypy]
 install_types = true

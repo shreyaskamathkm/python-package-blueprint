@@ -1,4 +1,3 @@
-CMD := poetry run
 TESTS_DIR := tests
 
 help:  ## Display this help
@@ -8,26 +7,30 @@ help:  ## Display this help
 ##@ Development
 
 test: ## Run tests
-	$(CMD) pytest --cov={{cookiecutter.project_slug}} $(TESTS_DIR)/
+	pytest --cov={{cookiecutter.project_slug}} $(TESTS_DIR)/
 .PHONY: test
 
 lint: ## Lint the code
-	$(CMD) ruff check ./{{cookiecutter.project_slug}} ./tests
+	ruff check ./{{cookiecutter.project_slug}} ./tests
 .PHONY: lint
 
 typecheck: ## Run type checking
-	$(CMD) mypy ./{{cookiecutter.project_slug}} ./tests
+	mypy ./{{cookiecutter.project_slug}} ./tests
 .PHONY: typecheck
 
 test-all: test lint typecheck ## Run all tests, linting, and type checking
 .PHONY: test-all
 
+format: ## Format the code
+	ruff format .
+.PHONY: format
+
 ##@ Installation
 
 edit-install: ## Install the package in editable mode
-	pip install -e .
+	pip install -e .[dev]
 .PHONY: edit-install
 
 install: ## Install the package
-	pip install .
+	pip install .[dev]
 .PHONY: install

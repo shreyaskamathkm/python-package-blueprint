@@ -4,21 +4,28 @@
 
 ## Package Management
 
-This package uses [Poetry](https://python-poetry.org/) to manage dependencies and isolated Python virtual environments.
+This package uses `venv` for virtual environments and `pip` for package management.
+
+## Development Commands
+
+This project uses a `Makefile` to provide a convenient interface for common development tasks. You can also run the commands directly.
 
 ## Dependencies
 
 Dependencies are defined in [`pyproject.toml`](./pyproject.toml). To install all dependencies into an isolated virtual environment:
 
 ```shell
-poetry install
+make edit-install
 ```
-
-To upgrade all dependencies to their latest versions:
+Alternatively, you can run `pip` directly:
 
 ```shell
-poetry update
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .[dev]
 ```
+
+To upgrade all dependencies to their latest versions, you can edit the `pyproject.toml` file and then run the install command again.
 
 ## Packaging
 
@@ -28,8 +35,14 @@ This project is designed as a Python package, meaning that it can be bundled up 
 
 To package the project as both a [source distribution](https://packaging.python.org/en/latest/flow/#the-source-distribution-sdist) and a [wheel](https://packaging.python.org/en/latest/specifications/binary-distribution-format/):
 
+First, install the `build` package:
 ```shell
-poetry build
+pip install build
+```
+
+Then, run the build command:
+```shell
+python -m build
 ```
 
 This will generate `dist/{{cookiecutter.project_slug}}-{{cookiecutter.version}}.tar.gz` and `dist/{{cookiecutter.project_slug}}-{{cookiecutter.version}}-py3-none-any.whl`.
@@ -45,7 +58,11 @@ Unit testing is performed with [pytest](https://pytest.org/).
 To run unit tests:
 
 ```shell
-poetry run pytest
+make test
+```
+Alternatively, you can run `pytest` directly:
+```shell
+pytest
 ```
 
 Code coverage is provided by the [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) plugin.
@@ -57,13 +74,17 @@ Code coverage is provided by the [pytest-cov](https://pytest-cov.readthedocs.io/
 To lint code, run:
 
 ```shell
-poetry run ruff check .
+make lint
+```
+Alternatively, you can run `ruff` directly:
+```shell
+ruff check .
 ```
 
 To automatically fix fixable lint errors, run:
 
 ```shell
-poetry run ruff check . --fix
+ruff check . --fix
 ```
 
 ## Automated Code Formatting
@@ -73,7 +94,11 @@ poetry run ruff check . --fix
 To automatically format code, run:
 
 ```shell
-poetry run ruff format .
+make format
+```
+Alternatively, you can run `ruff` directly:
+```shell
+ruff format .
 ```
 
 ## Type Checking
@@ -83,7 +108,11 @@ poetry run ruff format .
 mypy is configured in [`pyproject.toml`](./pyproject.toml). To type check code, run:
 
 ```shell
-poetry run mypy .
+make typecheck
+```
+Alternatively, you can run `mypy` directly:
+```shell
+mypy .
 ```
 
 ## Project Structure
@@ -98,8 +127,7 @@ This project uses a flat layout. This results in a directory structure like:
 │   └── schema.py
 ├── tests
 │   └── test_example.py
-├── pyproject.toml
-└── poetry.lock
+└── pyproject.toml
 ```
 
 ## Licensing
