@@ -48,3 +48,12 @@ bump-minor: ## Bump the minor version
 bump-patch: ## Bump the patch version
 	bump-my-version bump patch
 .PHONY: bump-patch
+
+##@ ML
+
+train: ## Run training
+	python -m {{cookiecutter.project_slug}}.train
+
+experiment: ## Run specific experiment
+	python -m {{cookiecutter.project_slug}}.train experiment=$(EXP)
+.PHONY: train experiment

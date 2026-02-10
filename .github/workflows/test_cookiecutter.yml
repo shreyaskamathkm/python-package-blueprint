@@ -21,15 +21,28 @@ jobs:
       run: |
         pip install cookiecutter pytest-cookies pytest
 
-    - name: Test generation
+    - name: Test generation (Default / ML Stack)
       run: |
-        # Generate a test project
-        cookiecutter . --no-input project_name="Test Project" project_slug="test_project" description="A test project" author="Test Author" version="0.0.1"
+        # Generate project with ML stack
+        cookiecutter . --no-input project_name="ML Project" project_slug="ml_project" include_ml_stack="yes" include_cli="yes"
+
+        # Check structure
+        if [ ! -d "ml_project/configs" ]; then echo "Configs missing"; exit 1; fi
         
-        # Check if project was created
-        ls -l test_project
+        # Install and test
+        cd ml_project
+        pip install .[dev]
+        make test
+
+    - name: Test generation (Lite / No ML)
+      run: |
+        # Generate project without ML stack
+        cookiecutter . --no-input project_name="Lite Project" project_slug="lite_project" include_ml_stack="no" include_cli="no"
+
+        # Check structure (ensure no ML files)
+        if [ -d "lite_project/configs" ]; then echo "Configs should not exist"; exit 1; fi
         
-        # Install generated project deps and run its tests
-        cd test_project
+        # Install and test
+        cd lite_project
         pip install .[dev]
         make test
