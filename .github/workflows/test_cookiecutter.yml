@@ -1,0 +1,35 @@
+name: Test Template
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-template:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install cookiecutter pytest-cookies pytest
+
+    - name: Test generation
+      run: |
+        # Generate a test project
+        cookiecutter . --no-input project_name="Test Project" project_slug="test_project" description="A test project" author="Test Author" version="0.0.1"
+        
+        # Check if project was created
+        ls -l test_project
+        
+        # Install generated project deps and run its tests
+        cd test_project
+        pip install .[dev]
+        make test

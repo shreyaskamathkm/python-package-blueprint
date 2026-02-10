@@ -1,5 +1,7 @@
 from pathlib import Path
+
 import yaml
+
 from {{cookiecutter.project_slug}}.schema import AppConfig
 
 
@@ -7,7 +9,7 @@ class TestAppConfig(AppConfig):
     dummy_field: str
 
 
-def test_app_config_from_yaml(tmp_path: Path):
+def test_app_config_from_yaml(tmp_path: Path) -> None:
     """Test loading AppConfig from a YAML file."""
     config_data = {"dummy_field": "dummy_value"}
     config_path = tmp_path / "config.yaml"

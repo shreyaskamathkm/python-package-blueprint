@@ -1,6 +1,7 @@
 """Command-line interface for {{cookiecutter.project_name}}."""
 
 import logging
+from pathlib import Path
 
 import click
 
@@ -23,7 +24,7 @@ def cli() -> None:
 )
 def run(config_path: str) -> None:
     """Runs the application."""
-    config = AppConfig.from_yaml(config_path)
+    config = AppConfig.from_yaml(Path(config_path))
     logger.info(f"Running with config: {config}")
     # Add your application logic here
 

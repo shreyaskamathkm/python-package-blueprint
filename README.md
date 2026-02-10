@@ -1,19 +1,58 @@
-# Python Project Template
+# Python Package Blueprint
 
-This is a cookiecutter template for creating new Python projects.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/test_cookiecutter.yml/badge.svg)](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/test_cookiecutter.yml)
+
+A modern, batteries-included [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for creating robust Python packages.
+
+## Features
+
+- **Modern Packaging**: Uses `pyproject.toml` (PEP 621) and standard `build` backend.
+- **Testing**: Pre-configured with `pytest` and code coverage.
+- **Code Quality**: Linting and formatting with `ruff`, type checking with `mypy`.
+- **CI/CD**: GitHub Actions for testing, linting, and type checking.
+- **Versioning**: Automated version management with `bump-my-version`.
+- **Publishing**: Automated PyPI publishing workflow.
+- **Development**: `Makefile` for common development tasks.
+- **Documentation**: Ready-to-go `mkdocs` setup (Coming Soon).
+
+## Prerequisites
+
+- Python 3.10+
+- `pip`
+- `cookiecutter`
 
 ## Usage
 
-First, make sure you have cookiecutter installed:
+1.  **Install Cookiecutter**:
+    ```bash
+    pip install cookiecutter
+    ```
 
-```bash
-pip install cookiecutter
-```
+2.  **Generate a New Project**:
+    ```bash
+    cookiecutter gh:shreyaskamathkm/python-package-blueprint
+    ```
 
-Then, run the following command to generate a new project:
+3.  **Answer the Prompts**:
+    You will be asked for:
+    - `project_name`: The human-readable name of your project.
+    - `project_slug`: The directory name and package name (snake_case).
+    - `description`: A short description.
+    - `author`: Your name/email.
+    - `version`: Initial version (default: 0.0.1).
 
-```bash
-cookiecutter gh:shreyaskamathkm/python-package-blueprint
-```
+4.  **Start Developing**:
+    ```bash
+    cd <your-project-slug>
+    pip install -e .[dev]
+    make test
+    ```
 
-Cookiecutter will prompt you for some information, such as the project name, description, and author. Once you have provided this information, a new project will be created in the current directory.
+## Contributing
+
+Contributions are welcome! Please check out the [guidelines](CONTRIBUTING.md).
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
