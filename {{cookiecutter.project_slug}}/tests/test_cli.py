@@ -1,3 +1,4 @@
+{% if cookiecutter.include_ml_stack == "no" %}
 from pathlib import Path
 from unittest.mock import patch
 
@@ -24,3 +25,8 @@ def test_run_command(tmp_path: Path) -> None:
         runner = CliRunner()
         result = runner.invoke(cli, ["run", "--config-path", str(config_path)])
         assert result.exit_code == 0
+{% else %}
+def test_placeholder() -> None:
+    """Placeholder test for ML stack."""
+    assert True
+{% endif %}

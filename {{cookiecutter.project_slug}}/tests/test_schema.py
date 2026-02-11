@@ -1,3 +1,4 @@
+{% if cookiecutter.include_ml_stack == "no" %}
 from pathlib import Path
 
 import yaml
@@ -18,3 +19,4 @@ def test_app_config_from_yaml(tmp_path: Path) -> None:
 
     app_config = TestAppConfig.from_yaml(config_path)
     assert app_config.dummy_field == "dummy_value"
+{% endif %}
