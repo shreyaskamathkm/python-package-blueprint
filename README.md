@@ -2,6 +2,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/test_cookiecutter.yml/badge.svg)](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/test_cookiecutter.yml)
+[![Docs](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/docs.yml/badge.svg)](https://shreyaskamathkm.github.io/python-package-blueprint/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 
 
 [**Explore the Request Documentation**](https://shreyaskamathkm.github.io/python-package-blueprint/)
