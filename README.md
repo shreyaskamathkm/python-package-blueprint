@@ -3,6 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/test_cookiecutter.yml/badge.svg)](https://github.com/shreyaskamathkm/python-package-blueprint/actions/workflows/test_cookiecutter.yml)
 
+
+[**Explore the Request Documentation**](https://shreyaskamathkm.github.io/python-package-blueprint/)
+
 A modern, batteries-included [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for creating robust Python packages.
 
 ## Features
@@ -14,7 +17,8 @@ A modern, batteries-included [Cookiecutter](https://github.com/cookiecutter/cook
 - **Versioning**: Automated version management with `bump-my-version`.
 - **Publishing**: Automated PyPI publishing workflow.
 - **Development**: `Makefile` for common development tasks.
-- **Documentation**: Ready-to-go `mkdocs` setup (Coming Soon).
+- **Documentation**: Ready-to-go `mkdocs` setup with Material theme.
+- **ML Support**: Optional full ML stack integration (Torch, Hydra, MLflow).
 
 ## Prerequisites
 
