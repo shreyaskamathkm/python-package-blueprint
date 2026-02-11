@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=75.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -11,9 +11,9 @@ authors = [{ name = "{{cookiecutter.author}}"}]
 requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+license = "MIT"
 dependencies = [
     "pydantic>=2.11.7",
     "pyyaml>=6.0.1",
@@ -44,6 +44,10 @@ dev = [
     "build>=1.0.0",
     "twine>=4.0.2",
 ]
+
+[tool.setuptools.packages.find]
+include = ["{{cookiecutter.project_slug}}*"]
+exclude = ["configs", "datasets", "artifacts", "notebooks", "tests", "docs"]
 
 [project.scripts]
 {% if cookiecutter.include_ml_stack == "yes" -%}
