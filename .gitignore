@@ -78,15 +78,8 @@ target/
 *.pstats
 
 *.insyncdl
-# Data Science Artifacts
-datasets/*
-!datasets/.gitkeep
-artifacts/*
-!artifacts/.gitkeep
-notebooks/*
-!notebooks/.gitkeep
-
 .venv
 volumes/
 .*_cache
 .env
+site/

@@ -4,5 +4,6 @@
   "description": "A short description of the project.",
   "author": "Your Name <your.email@example.com>",
   "version": "0.0.1",
-  "year": "{% now 'utc', '%Y' %}"
+  "year": "{% now 'utc', '%Y' %}",
+  "include_ml_stack": ["yes", "no"]
 }

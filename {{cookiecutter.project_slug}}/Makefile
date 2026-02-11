@@ -34,3 +34,26 @@ edit-install: ## Install the package in editable mode
 install: ## Install the package
 	pip install .[dev]
 .PHONY: install
+
+##@ Release
+
+bump-major: ## Bump the major version
+	bump-my-version bump major
+.PHONY: bump-major
+
+bump-minor: ## Bump the minor version
+	bump-my-version bump minor
+.PHONY: bump-minor
+
+bump-patch: ## Bump the patch version
+	bump-my-version bump patch
+.PHONY: bump-patch
+
+##@ ML
+
+train: ## Run training
+	python -m {{cookiecutter.project_slug}}.train
+
+experiment: ## Run specific experiment
+	python -m {{cookiecutter.project_slug}}.train experiment=$(EXP)
+.PHONY: train experiment

@@ -2,6 +2,8 @@ import logging
 
 from rich.logging import RichHandler
 
+from {{cookiecutter.project_slug}}.__version__ import __version__ as __version__
+
 LOGGING_LEVEL = logging.INFO
 rich_handler = RichHandler(show_time=False, level=LOGGING_LEVEL)
 

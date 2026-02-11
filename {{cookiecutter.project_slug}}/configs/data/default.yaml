@@ -1,0 +1,4 @@
+name: cifar10
+path: data/raw
+batch_size: ${training.batch_size}
+num_workers: 4
