@@ -46,3 +46,8 @@ def test_bake_project_with_ml(cookies):
     assert (result.project_path / "configs" / "scheduler" / "step_lr.yaml").exists()
     assert (result.project_path / "ml_project" / "config" / "config.py").exists()
     assert not (result.project_path / "ml_project" / "schema.py").exists()
+
+def test_bake_invalid_identifier(cookies):
+    result = cookies.bake(extra_context={"project_slug": "Invalid-Identifier"})
+    assert result.exit_code != 0
+    assert result.exception is not None
