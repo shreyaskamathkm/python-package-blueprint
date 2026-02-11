@@ -20,6 +20,12 @@ dependencies = [
 dev = [
     "pytest>=7.0.0",
     "pytest-cookies>=0.7.0",
+    "pandas", 
+    "matplotlib", 
+    "jupyter",
+    "torch",
+    "mkdocs-material",
+    "mkdocstrings[python]",
 ]
 
 [tool.hatch.build.targets.wheel]
