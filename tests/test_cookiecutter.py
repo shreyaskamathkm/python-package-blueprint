@@ -17,15 +17,7 @@ def test_bake_project(cookies):
     assert (result.project_path / ".gitignore").is_file()
     assert (result.project_path / "docs" / "index.md").is_file()
     assert (result.project_path / "docs" / "getting-started.md").is_file()
-
-def test_bake_project_with_cli(cookies):
-    result = cookies.bake(extra_context={"project_name": "CLI Project", "include_cli": "yes"})
-
-    assert result.exit_code == 0
-    assert result.exception is None
-    
-    # Check for CLI specific files/content if any (adjust based on actual template content)
-    # For now just checking it generates without error
+    assert (result.project_path / "test_project" / "cli.py").is_file()
 
 def test_bake_project_no_ml(cookies):
     result = cookies.bake(extra_context={"project_name": "No ML Project", "include_ml_stack": "no"})

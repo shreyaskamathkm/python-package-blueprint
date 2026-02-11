@@ -5,6 +5,5 @@
   "author": "Your Name <your.email@example.com>",
   "version": "0.0.1",
   "year": "{% now 'utc', '%Y' %}",
-  "include_cli": ["yes", "no"],
   "include_ml_stack": ["yes", "no"]
 }

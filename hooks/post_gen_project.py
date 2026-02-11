@@ -12,9 +12,8 @@ REMOVE_PATHS = [
     '{% if cookiecutter.include_ml_stack != "yes" %}{{cookiecutter.project_slug}}/utils{% endif %}',
     '{% if cookiecutter.include_ml_stack != "yes" %}{{cookiecutter.project_slug}}/train.py{% endif %}',
     '{% if cookiecutter.include_ml_stack != "yes" %}{{cookiecutter.project_slug}}/config{% endif %}',
+    '{% if cookiecutter.include_ml_stack != "yes" %}{{cookiecutter.project_slug}}/data{% endif %}',
     '{% if cookiecutter.include_ml_stack == "yes" %}{{cookiecutter.project_slug}}/schema.py{% endif %}',
-    '{% if cookiecutter.include_cli != "yes" %}{{cookiecutter.project_slug}}/cli.py{% endif %}',
-    '{% if cookiecutter.include_cli != "yes" %}tests/test_cli.py{% endif %}',
 ]
 
 def remove(path):
